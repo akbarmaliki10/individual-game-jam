@@ -368,7 +368,7 @@ texture_filter = 1
 position = Vector2(33, 23)
 sprite_frames = SubResource("SpriteFrames_2ylib")
 animation = &"up_walk"
-frame_progress = 0.395897
+frame_progress = 0.395137
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(33, 24)
