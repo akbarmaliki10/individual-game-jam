@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://n5kw1mdkgv78" path="res://assets/top_down_character/_up walk.png" id="10_0lx2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0mhm"]
-size = Vector2(13, 6)
+size = Vector2(18, 30.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7eg1"]
 atlas = ExtResource("2_odsxo")
@@ -46,10 +46,6 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("3_of1in")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b00og"]
-atlas = ExtResource("4_42brg")
-region = Rect2(128, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_keh7x"]
 atlas = ExtResource("4_42brg")
 region = Rect2(0, 0, 64, 64)
@@ -57,6 +53,10 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nhc4i"]
 atlas = ExtResource("4_42brg")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b00og"]
+atlas = ExtResource("4_42brg")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hvesl"]
 atlas = ExtResource("4_42brg")
@@ -158,10 +158,6 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("9_c368b")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qsi8u"]
-atlas = ExtResource("10_0lx2o")
-region = Rect2(128, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ogk"]
 atlas = ExtResource("10_0lx2o")
 region = Rect2(0, 0, 64, 64)
@@ -169,6 +165,10 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rh3px"]
 atlas = ExtResource("10_0lx2o")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsi8u"]
+atlas = ExtResource("10_0lx2o")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ad3a"]
 atlas = ExtResource("10_0lx2o")
@@ -219,25 +219,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_b00og")
-}, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_keh7x")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nhc4i")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b00og")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hvesl")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_okoe3")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tluwr")
 }],
 "loop": true,
@@ -279,25 +276,25 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5k2xv")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4ixqa")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sy8s1")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3uonv")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lhpms")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5k2xv")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jonbp")
 }],
 "loop": true,
@@ -339,25 +336,22 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_qsi8u")
-}, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_24ogk")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rh3px")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qsi8u")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8ad3a")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_20gvg")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_btmht")
 }],
 "loop": true,
@@ -371,14 +365,14 @@ y_sort_enabled = true
 script = ExtResource("1_o5a1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35.5, 35)
+position = Vector2(35, 24)
 shape = SubResource("RectangleShape2D_o0mhm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(35, 41)
+position = Vector2(33, 23)
 sprite_frames = SubResource("SpriteFrames_2ylib")
-animation = &"up_walk"
+animation = &"side_walk"
 offset = Vector2(0, -17.675)
 
 [node name="Camera2D" type="Camera2D" parent="."]
