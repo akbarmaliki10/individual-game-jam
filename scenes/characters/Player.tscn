@@ -357,6 +357,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_o5a1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -367,8 +369,8 @@ shape = SubResource("RectangleShape2D_o0mhm")
 texture_filter = 1
 position = Vector2(33, 23)
 sprite_frames = SubResource("SpriteFrames_2ylib")
-animation = &"down_attack"
-frame_progress = 0.543131
+animation = &"side_idle"
+offset = Vector2(0, -17.675)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(33, 24)
