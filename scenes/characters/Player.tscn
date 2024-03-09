@@ -380,7 +380,3 @@ position = Vector2(35, 41)
 sprite_frames = SubResource("SpriteFrames_2ylib")
 animation = &"up_walk"
 offset = Vector2(0, -17.675)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(33, 24)
-zoom = Vector2(5, 5)
