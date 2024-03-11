@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3f4g27esbte6"]
+
+[ext_resource type="Texture2D" uid="uid://ddl2x53snmsnv" path="res://assets/NinjaAdventure/HUD/Heart.png" id="1_dts3v"]
+[ext_resource type="Script" path="res://gui/HeartGUI.gd" id="1_orech"]
+
+[node name="heartGUI" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(16, 13)
+offset_right = 16.0
+offset_bottom = 13.0
+script = ExtResource("1_orech")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_dts3v")
+centered = false
+hframes = 5
+frame = 4

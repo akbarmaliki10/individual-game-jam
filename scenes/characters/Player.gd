@@ -4,7 +4,11 @@ extends CharacterBody2D
 
 @export var speed: int = 50
 
+@export var maxHealth: int = 4
+@onready var currentHealth: int = maxHealth
 const JUMP_VELOCITY = -400.0
+
+signal healthChanged
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -38,7 +42,6 @@ func handleCollision():
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		print_debug(collider.name)
 
 func _physics_process(delta):
 	handleInput()
@@ -49,4 +52,8 @@ func _physics_process(delta):
 
 func _on_hurt_box_area_entered(area):
 	if area.name == "HitBox":
-		print_debug(area.get_parent().name)
+		currentHealth -= 1
+		if currentHealth < 1:
+			currentHealth = maxHealth
+		
+		healthChanged.emit(currentHealth)
