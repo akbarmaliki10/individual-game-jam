@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://s5h8l1nwq63c"]
+
+[ext_resource type="Texture2D" uid="uid://hwahila0kfce" path="res://assets/NinjaAdventure/Items/Weapons/Club/Sprite.png" id="1_g4ts1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7smbw"]
+size = Vector2(7, 9)
+
+[node name="Club" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+texture = ExtResource("1_g4ts1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -6.5)
+shape = SubResource("RectangleShape2D_7smbw")

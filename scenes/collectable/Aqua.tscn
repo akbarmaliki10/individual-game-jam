@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqd4srd28jvk"]
+
+[ext_resource type="PackedScene" uid="uid://wye7qpgqhbn3" path="res://scenes/collectable/Collectable.tscn" id="1_mfxi8"]
+[ext_resource type="Texture2D" uid="uid://d3kx4cc20jwl7" path="res://assets/Dungeon/trash assets/water bottle clean.png" id="2_1gska"]
+[ext_resource type="Script" path="res://scenes/collectable/Aqua.gd" id="2_xwdnd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gif21"]
+resource_local_to_scene = true
+size = Vector2(6, 16)
+
+[sub_resource type="Animation" id="Animation_px4v6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tnr5e"]
+resource_name = "spin"
+length = 0.4
+step = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.56905]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bj1t8"]
+_data = {
+"RESET": SubResource("Animation_px4v6"),
+"spin": SubResource("Animation_tnr5e")
+}
+
+[node name="Aqua" instance=ExtResource("1_mfxi8")]
+script = ExtResource("2_xwdnd")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_gif21")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_1gska")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_bj1t8")
+}
