@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var animations = $AnimatedSprite2D
 
+var isDead: bool = false
+
 var startPosition
 var endPosition
 
@@ -44,6 +46,18 @@ func updateAnimation():
 			animations.play("walk")
 
 func _physics_process(delta):
+	if isDead: return
+	
 	updateVelocity()
 	move_and_slide()
 	updateAnimation()
+
+
+func _on_hurt_box_area_entered(area):
+	if area == $HitBox:
+		return
+	$HitBox.set_deferred("monitorable", false)
+	isDead = true
+	animations.play("death")
+	await animations.animation_finished
+	queue_free()

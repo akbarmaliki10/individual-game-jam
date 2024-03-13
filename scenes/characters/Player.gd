@@ -94,10 +94,11 @@ func attack():
 		animationAttack.flip_h = false
 		animationAttack.play("side_attack")
 	isAttacking = true
-	weapon.visible = false
+	weapon.enable()
 	animationAttack.visible = true
 	await  animationWeapon.animation_finished
 	await  animationAttack.animation_finished
+	weapon.disable()
 	animationAttack.visible = false
 	isAttacking = false
 

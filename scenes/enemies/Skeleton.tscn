@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://4qakwh8feqah"]
+[gd_scene load_steps=35 format=3 uid="uid://4qakwh8feqah"]
 
 [ext_resource type="Script" path="res://scenes/enemies/Skeleton.gd" id="1_6mh5e"]
 [ext_resource type="Texture2D" uid="uid://dqiov0jhan80p" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="1_skne3"]
@@ -147,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xg2ov")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -209,6 +209,9 @@ size = Vector2(45, 55.238)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okhqb"]
 size = Vector2(45.7143, 55.7143)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xudrf"]
+size = Vector2(59.0476, 66.6666)
+
 [node name="Skeleton" type="CharacterBody2D"]
 z_index = 1
 scale = Vector2(0.525, 0.525)
@@ -219,8 +222,9 @@ script = ExtResource("1_6mh5e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -32)
 sprite_frames = SubResource("SpriteFrames_11j3q")
-animation = &"walk"
-frame_progress = 0.536986
+animation = &"death"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.2619, -31.4286)
@@ -231,3 +235,13 @@ shape = SubResource("RectangleShape2D_grrtu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(1.90477, -31.6667)
 shape = SubResource("RectangleShape2D_okhqb")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.952381, -33.3333)
+shape = SubResource("RectangleShape2D_xudrf")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

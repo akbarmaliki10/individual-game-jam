@@ -1,7 +1,8 @@
-[gd_scene load_steps=76 format=3 uid="uid://dh02dpvafj4lu"]
+[gd_scene load_steps=77 format=3 uid="uid://dh02dpvafj4lu"]
 
 [ext_resource type="Script" path="res://scenes/characters/Player.gd" id="1_o5a1b"]
 [ext_resource type="Texture2D" uid="uid://mp84y0vqeybr" path="res://assets/top_down_character/_down attack.png" id="2_7v8o3"]
+[ext_resource type="Script" path="res://scenes/weapons/Weapon.gd" id="2_m36du"]
 [ext_resource type="PackedScene" uid="uid://s5h8l1nwq63c" path="res://scenes/weapons/Club.tscn" id="2_wr73b"]
 [ext_resource type="Texture2D" uid="uid://dcm4b3jnkelvp" path="res://assets/top_down_character/_down idle.png" id="3_sw5j2"]
 [ext_resource type="Texture2D" uid="uid://bc38j51o1qmvc" path="res://assets/top_down_character/_down walk.png" id="4_03gqt"]
@@ -646,6 +647,7 @@ script = ExtResource("1_o5a1b")
 visible = false
 position = Vector2(40.485, 42.425)
 rotation = 2.3911
+script = ExtResource("2_m36du")
 
 [node name="Club" parent="Weapon" instance=ExtResource("2_wr73b")]
 scale = Vector2(1.245, 1.245)
@@ -671,7 +673,6 @@ color = Color(1, 0, 0, 0)
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(10, 24)
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(25.5, -0.5)
