@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://dqxsq0fwooykv"]
+[gd_scene load_steps=25 format=3 uid="uid://dqxsq0fwooykv"]
 
 [ext_resource type="Script" path="res://scenes/characters/NPC.gd" id="1_lebci"]
 [ext_resource type="Texture2D" uid="uid://clglskpe6uhhx" path="res://assets/top_down_character/Human-Worker-Red.png" id="1_mft8g"]
+[ext_resource type="PackedScene" uid="uid://qhr4cq4ewv3y" path="res://scenes/dialogue/Dialogue.tscn" id="3_618r5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s8bm8"]
 atlas = ExtResource("1_mft8g")
@@ -187,6 +188,10 @@ shape = SubResource("CircleShape2D_5ekkd")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Dialogue" parent="." instance=ExtResource("3_618r5")]
+dialogueFile = "res://scenes/dialogue/villager_dialogue1.json"
+
 [connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
 [connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_finished"]

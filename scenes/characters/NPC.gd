@@ -48,6 +48,7 @@ func _physics_process(delta):
 				move(delta)
 	if Input.is_action_just_pressed("chat"):
 		print("chatting with npc")
+		$Dialogue.start()
 		isRoaming = false
 		isChatting = true
 		animations.play("idle")
@@ -78,3 +79,8 @@ func _on_chat_detection_area_body_exited(body):
 func _on_timer_timeout():
 	$Timer.wait_time = choose([0.5,1,1,1.5])
 	currentState = choose([IDLE, NEW_DIR, MOVE])
+
+
+func _on_dialogue_finished():
+	isChatting = false
+	isRoaming = true
