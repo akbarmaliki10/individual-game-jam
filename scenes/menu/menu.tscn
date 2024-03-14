@@ -1,0 +1,114 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcrrem1ahc3cs"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_y6myl"]
+[ext_resource type="AudioStream" uid="uid://cuy2ramc4jkd8" path="res://assets/Audio/SFX/Wood Block1.wav" id="2_2uxyk"]
+[ext_resource type="Texture2D" uid="uid://cng78gtbdckwx" path="res://assets/Menu/freepik_rural.jpg" id="2_qdq3p"]
+[ext_resource type="AudioStream" uid="uid://dhf5aho5etabf" path="res://assets/NinjaAdventure/Musics/20 - Good Time.ogg" id="4_5adcm"]
+[ext_resource type="Script" path="res://scenes/menu/TextureRect.gd" id="5_3yaqp"]
+[ext_resource type="Texture2D" uid="uid://djrg2ddlnk87c" path="res://assets/Menu/title.png" id="6_kg8yx"]
+[ext_resource type="FontFile" uid="uid://7wi781xfoi1d" path="res://assets/fonts/Minecraft.ttf" id="6_tjafn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpr5j"]
+bg_color = Color(0.0627451, 0.403922, 0.2, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkhby"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.854902, 0.498039, 0.231373, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_p7008"]
+Button/font_sizes/font_size = 38
+Button/fonts/font = ExtResource("6_tjafn")
+Button/styles/hover = SubResource("StyleBoxFlat_lpr5j")
+Button/styles/normal = SubResource("StyleBoxFlat_pkhby")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6myl")
+
+[node name="ButtonPressedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2uxyk")
+volume_db = 8.0
+
+[node name="FreepikRural" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(575.125, 327.5)
+scale = Vector2(0.38325, 0.3245)
+texture = ExtResource("2_qdq3p")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5adcm")
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qdq3p")
+expand_mode = 1
+script = ExtResource("5_3yaqp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.5
+offset_top = -274.0
+offset_right = 118.5
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+z_as_relative = false
+layout_mode = 2
+theme = SubResource("Theme_p7008")
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
+offset_top = 89.0
+offset_right = 260.0
+offset_bottom = 200.0
+grow_horizontal = 2
+texture = ExtResource("6_kg8yx")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
