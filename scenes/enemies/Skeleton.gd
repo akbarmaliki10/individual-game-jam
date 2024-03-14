@@ -52,7 +52,6 @@ func _physics_process(delta):
 	move_and_slide()
 	updateAnimation()
 
-
 func _on_hurt_box_area_entered(area):
 	if area == $HitBox:
 		return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://4qakwh8feqah"]
+[gd_scene load_steps=36 format=3 uid="uid://4qakwh8feqah"]
 
 [ext_resource type="Script" path="res://scenes/enemies/Skeleton.gd" id="1_6mh5e"]
 [ext_resource type="Texture2D" uid="uid://dqiov0jhan80p" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="1_skne3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bxbwpjnycqu33" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Idle.png" id="3_safw4"]
 [ext_resource type="Texture2D" uid="uid://cgjprft0eypps" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Take Hit.png" id="4_h8i8f"]
 [ext_resource type="Texture2D" uid="uid://dxqqqxcbip2ea" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="5_qtg8b"]
+[ext_resource type="Script" path="res://scenes/enemies/HitBox.gd" id="7_nmkgl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l02ja"]
 atlas = ExtResource("1_skne3")
@@ -222,15 +223,15 @@ script = ExtResource("1_6mh5e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -32)
 sprite_frames = SubResource("SpriteFrames_11j3q")
-animation = &"death"
-frame = 3
-frame_progress = 1.0
+animation = &"attack"
+frame_progress = 0.529804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.2619, -31.4286)
 shape = SubResource("RectangleShape2D_grrtu")
 
 [node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("7_nmkgl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(1.90477, -31.6667)

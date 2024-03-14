@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5k3m2olvrmg3"]
+[gd_scene load_steps=15 format=3 uid="uid://c5k3m2olvrmg3"]
 
 [ext_resource type="Script" path="res://scenes/Dungeon.gd" id="1_1scoq"]
 [ext_resource type="Texture2D" uid="uid://b0vxcndqkt6vb" path="res://assets/Dungeon/2D Pixel Dungeon Asset Pack/character and tileset/demonstration.png" id="1_b8wj6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de7s4tebw7kb2" path="res://scenes/AreaTrigger.tscn" id="4_dp447"]
 [ext_resource type="PackedScene" uid="uid://4qakwh8feqah" path="res://scenes/enemies/Skeleton.tscn" id="6_d36pa"]
 [ext_resource type="PackedScene" uid="uid://cj1i4j4a2ndlj" path="res://gui/HeartContainer.tscn" id="7_y8ixu"]
+[ext_resource type="AudioStream" uid="uid://d2drksg3osewn" path="res://assets/NinjaAdventure/Musics/21 - Dungeon.ogg" id="10_3nmg8"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_l52bk"]
 resource_name = "Collectables"
@@ -389,28 +390,32 @@ scale = Vector2(4, 4)
 
 [node name="Skeleton2" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_d36pa")]
 position = Vector2(199, 558)
-endPoint = NodePath("../Skeleton/Marker2D")
+endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Skeleton2"]
 position = Vector2(-139.048, 93.3333)
 
 [node name="Skeleton3" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_d36pa")]
 position = Vector2(193, 379)
-endPoint = NodePath("../Skeleton/Marker2D")
+endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Skeleton3"]
 position = Vector2(70.4762, 36.1904)
 
 [node name="Skeleton4" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_d36pa")]
 position = Vector2(517, 429)
-endPoint = NodePath("../Skeleton/Marker2D")
+endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Skeleton4"]
 position = Vector2(144.762, 99.0476)
 
 [node name="Skeleton5" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_d36pa")]
 position = Vector2(671, 393)
-endPoint = NodePath("../Skeleton/Marker2D")
+endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="Skeleton5"]
 position = Vector2(-245.714, 139.048)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_3nmg8")
+autoplay = true

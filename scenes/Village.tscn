@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://8fh0t57ctef8"]
+[gd_scene load_steps=25 format=3 uid="uid://8fh0t57ctef8"]
 
 [ext_resource type="PackedScene" uid="uid://dh02dpvafj4lu" path="res://scenes/characters/Player.tscn" id="2_rxvxs"]
 [ext_resource type="Texture2D" uid="uid://dcmliv8gyyeyh" path="res://assets/Harvest Sumer Free Ver. Pack/tilesets/Set 1.0.png" id="3_41bch"]
 [ext_resource type="Texture2D" uid="uid://cfb57qgc15ldo" path="res://assets/Harvest Sumer Free Ver. Pack/tilesets/Set 1.1.png" id="4_eljlw"]
 [ext_resource type="Texture2D" uid="uid://tginnwy5pkgl" path="res://assets/Harvest Sumer Free Ver. Pack/tilesets/Set 1.2.png" id="5_i3btq"]
+[ext_resource type="Texture2D" uid="uid://6ut88xbbh12y" path="res://assets/kenney_tiny_town/Tilemap/tilemap.png" id="5_w5ayh"]
 [ext_resource type="Texture2D" uid="uid://bbfwauey6l76v" path="res://assets/Harvest Sumer Free Ver. Pack/tilesets/fences and ladders etc.png" id="6_5lp0i"]
 [ext_resource type="Texture2D" uid="uid://btys4w3ce6qd7" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetNature.png" id="6_bfacr"]
 [ext_resource type="Texture2D" uid="uid://e2aaf0fwc4x6" path="res://assets/Harvest Sumer Free Ver. Pack/Vegetation/Trees 3.png" id="7_76554"]
@@ -11,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dbbu0rr0jgodr" path="res://assets/NinjaAdventure/Backgrounds/Tilesets/TilesetFloor.png" id="8_m0d80"]
 [ext_resource type="Script" path="res://scenes/FollowPlayer.gd" id="9_mn5bq"]
 [ext_resource type="PackedScene" uid="uid://de7s4tebw7kb2" path="res://scenes/AreaTrigger.tscn" id="11_c7osf"]
+[ext_resource type="AudioStream" uid="uid://bmhe5uqc44u2t" path="res://assets/NinjaAdventure/Musics/4 - Village.ogg" id="12_vghxa"]
+[ext_resource type="PackedScene" uid="uid://dqxsq0fwooykv" path="res://scenes/characters/NPC.tscn" id="14_r32lx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jilu"]
 texture = ExtResource("3_41bch")
@@ -887,15 +890,19 @@ texture = ExtResource("6_5lp0i")
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.625, -6.625, 8, -3.5, 8, 5.25, -0.125, 8, -2.875, 1.5)
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.125, -6.25, 8, -3.625, 8, 4.75, 0.75, 8, -8, 5, -8, -3.25)
 4:2/0 = 0
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.125, -6, 2.125, 8, -3.125, 8, -8, 1, -3.25, -3.75, -2.875, -6.625)
 5:2/0 = 0
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.75, -6.125, 2.75, -6.125, 2.625, 8, -2.875, 8)
 7:2/0 = 0
 7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:2/0/physics_layer_0/angular_velocity = 0.0
@@ -911,15 +918,19 @@ texture = ExtResource("6_5lp0i")
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -7, -2.625, -6.125, -2.625, 8, 2.25, 8, 3, 5.375, 8, 5.5, 8, -3, 2.875, -3.875)
 3:3/0 = 0
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.25, 8, -8, 5.125, -8, -3, -2.25, -6, 1.625, -6.5, 8, -3.25, 8, 5.625, 2.375, 8)
 4:3/0 = 0
 4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 5.5, -5.125, 5.625, -2.125, 5.375, -2.5, 8, 1.875, 8, 2.5, -5.25, -2.25, -7, -3.125, -3.875, -8, -3.125)
 5:3/0 = 0
 5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.625, -8, 2.625, -8, 2.375, 8, -2.375, 8)
 7:3/0 = 0
 7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:3/0/physics_layer_0/angular_velocity = 0.0
@@ -986,6 +997,20 @@ texture = ExtResource("6_5lp0i")
 10:5/0 = 0
 10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:5/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gja18"]
+texture = ExtResource("5_w5ayh")
+margins = Vector2i(4, 5)
+0:4/size_in_atlas = Vector2i(4, 4)
+0:4/0 = 0
+0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:4/0/physics_layer_0/angular_velocity = 0.0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.1127, -31.8198, -31.8198, 31.1127, 31.1127, 30.4056, 31.1127, -30.4056)
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:4/0/physics_layer_0/angular_velocity = 0.0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30.5, -30.5, -33, 30.5, 30.5, 30, 29.5, -30.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nblen"]
 texture = ExtResource("7_76554")
@@ -2744,6 +2769,7 @@ sources/5 = SubResource("TileSetAtlasSource_nblen")
 sources/7 = SubResource("TileSetAtlasSource_52rbb")
 sources/6 = SubResource("TileSetAtlasSource_ooqvn")
 sources/9 = SubResource("TileSetAtlasSource_djoww")
+sources/4 = SubResource("TileSetAtlasSource_gja18")
 
 [node name="Village" type="Node2D"]
 y_sort_enabled = true
@@ -2758,13 +2784,16 @@ layer_0/tile_data = PackedInt32Array(851968, 851970, 4, 917504, 655362, 4, 91750
 layer_1/name = "tree"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(983041, 393221, 1, 720907, 393221, 1, 1048596, 393221, 1, 65548, 393221, 1, 21, 393221, 1, 720898, 458757, 4, 786450, 458757, 4, 1048582, 458757, 4, 65540, 458757, 4)
+layer_1/tile_data = PackedInt32Array(983041, 393221, 1, 720907, 393221, 1, 1048596, 393221, 1, 65548, 393221, 1, 21, 393221, 1, 720898, 458757, 4, 786450, 458757, 4, 1048582, 458757, 4, 65540, 458757, 4, 786437, 196611, 2, 786438, 196611, 2, 786439, 196611, 2, 786436, 131075, 2, 786440, 262147, 2, 983045, 196611, 3, 983046, 196611, 3, 983047, 196611, 3, 983048, 262147, 3, 983044, 131075, 3, 917508, 327683, 2, 851972, 327683, 2, 917512, 327683, 2, 851976, 327683, 2, 65544, 4, 4, 589845, 262148, 4, 589830, 262148, 4)
 layer_2/name = "flowers"
 layer_2/tile_data = PackedInt32Array(983051, 7, 2, 983037, 7, 0, 196609, 7, 1, 65538, 7, 2, 917507, 7, 2, 786437, 7, 0, 786438, 7, 0, 786439, 7, 0, 131080, 7, 2, 917512, 7, 0, 131084, 7, 1, 786445, 7, 0, 17, 7, 1, 196625, 7, 1, 720914, 7, 0, 720915, 7, 0, 196628, 7, 1, 720916, 7, 0, 655382, 7, 0)
 layer_3/name = "boundary"
 layer_3/y_sort_enabled = true
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(1179648, 6, 12, -131072, 6, 12, -131070, 6, 12, 1179650, 6, 12, -131068, 6, 12, 1179652, 6, 12, -131066, 6, 12, 1179654, 6, 12, -131064, 6, 12, 1179656, 6, 12, -131062, 6, 12, 1179658, 6, 12, -131060, 6, 12, 1179660, 6, 12, -131058, 6, 12, 1179662, 6, 12, -131056, 6, 12, 1179664, 6, 12, -131054, 6, 12, 1179666, 6, 12, -131052, 6, 12, 1179668, 6, 12, -131050, 6, 12, 24, 6, 12, 1179670, 6, 12, -131048, 6, 12, -65512, 6, 12, 65560, 6, 12, 131096, 6, 12, 196632, 6, 12, 524312, 6, 12, 589848, 6, 12, 655384, 6, 12, 720920, 6, 12, 786456, 6, 12, 851992, 6, 12, 917528, 6, 12, 983064, 6, 12, 1048600, 6, 12, 1114136, 6, 12, 1179672, 6, 12, -1, 6, 12, 1179647, 6, 12, 1114111, 6, 12, 1048575, 6, 12, 983039, 6, 12, 917503, 6, 12, 851967, 6, 12, 786431, 6, 12, 720895, 6, 12, 655359, 6, 12, 589823, 6, 12, 524287, 6, 12, 458751, 6, 12, 393215, 6, 12, 327679, 6, 12, 262143, 6, 12, 196607, 6, 12, 131071, 6, 12, 65535, 6, 12, 1245183, 6, 12, 1245184, 6, 12, 1245186, 6, 12, 1245188, 6, 12, 1245190, 6, 12, 1310719, 6, 12, 1245192, 6, 12, 1245194, 6, 12, 1245196, 6, 12, 1245198, 6, 12, 1245200, 6, 12, 1245202, 6, 12, 1245204, 6, 12, 1245206, 6, 12, 1245208, 6, 12, 524314, 6, 12, 524316, 6, 12, 262172, 6, 12, 327708, 6, 12, 393244, 6, 12, 458780, 6, 12, 196634, 6, 12, 196636, 6, 12)
+
+[node name="NPC" parent="." instance=ExtResource("14_r32lx")]
+position = Vector2(104, 227)
 
 [node name="Player" parent="." instance=ExtResource("2_rxvxs")]
 position = Vector2(23, 65)
@@ -2784,3 +2813,7 @@ tilemap = NodePath("../../TileMapHarvest")
 [node name="DungeonArea" parent="." instance=ExtResource("11_c7osf")]
 position = Vector2(430, 100)
 sceneName = "Dungeon"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_vghxa")
+autoplay = true
