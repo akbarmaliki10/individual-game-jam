@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://4qakwh8feqah"]
+[gd_scene load_steps=37 format=3 uid="uid://4qakwh8feqah"]
 
 [ext_resource type="Script" path="res://scenes/enemies/Skeleton.gd" id="1_6mh5e"]
 [ext_resource type="Texture2D" uid="uid://dqiov0jhan80p" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Attack.png" id="1_skne3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cgjprft0eypps" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Take Hit.png" id="4_h8i8f"]
 [ext_resource type="Texture2D" uid="uid://dxqqqxcbip2ea" path="res://assets/Dungeon/Monsters/Monsters_Creatures_Fantasy/Skeleton/Walk.png" id="5_qtg8b"]
 [ext_resource type="Script" path="res://scenes/enemies/HitBox.gd" id="7_nmkgl"]
+[ext_resource type="AudioStream" uid="uid://dcs6g7s6snsdw" path="res://assets/NinjaAdventure/Sounds/Game/Fx.wav" id="8_kgdqk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l02ja"]
 atlas = ExtResource("1_skne3")
@@ -205,13 +206,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grrtu"]
-size = Vector2(45, 55.238)
+size = Vector2(53.3333, 55.238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okhqb"]
-size = Vector2(45.7143, 55.7143)
+size = Vector2(53.3333, 55.7143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xudrf"]
-size = Vector2(59.0476, 66.6666)
+size = Vector2(64.7619, 66.6666)
 
 [node name="Skeleton" type="CharacterBody2D"]
 z_index = 1
@@ -227,14 +228,16 @@ animation = &"attack"
 frame_progress = 0.529804
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.2619, -31.4286)
+position = Vector2(-1.90477, -31.4286)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_grrtu")
 
 [node name="HitBox" type="Area2D" parent="."]
 script = ExtResource("7_nmkgl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(1.90477, -31.6667)
+position = Vector2(-1.90475, -31.6667)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_okhqb")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -242,7 +245,11 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0.952381, -33.3333)
+position = Vector2(-1.90477, -33.3333)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xudrf")
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_kgdqk")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

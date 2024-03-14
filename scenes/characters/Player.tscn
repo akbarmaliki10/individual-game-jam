@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dh02dpvafj4lu"]
+[gd_scene load_steps=87 format=3 uid="uid://dh02dpvafj4lu"]
 
 [ext_resource type="Script" path="res://scenes/characters/Player.gd" id="1_o5a1b"]
 [ext_resource type="Texture2D" uid="uid://mp84y0vqeybr" path="res://assets/top_down_character/_down attack.png" id="2_7v8o3"]
@@ -8,10 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bc38j51o1qmvc" path="res://assets/top_down_character/_down walk.png" id="4_03gqt"]
 [ext_resource type="Texture2D" uid="uid://dexiovlewgweo" path="res://assets/top_down_character/_side attack.png" id="5_8mici"]
 [ext_resource type="Texture2D" uid="uid://b5vnlcchf4qjs" path="res://assets/top_down_character/_side idle.png" id="6_2hi6j"]
+[ext_resource type="Texture2D" uid="uid://6stvxndiuf3x" path="res://assets/top_down_character/_pick up.png" id="7_5a35g"]
 [ext_resource type="Texture2D" uid="uid://bbx7hdp11b53r" path="res://assets/top_down_character/_side walk.png" id="7_ybfip"]
 [ext_resource type="Texture2D" uid="uid://b5k5mlwxoqkf1" path="res://assets/top_down_character/_up attack.png" id="8_k4wqx"]
 [ext_resource type="Texture2D" uid="uid://bfxv1ao1mr0g3" path="res://assets/top_down_character/_up idle.png" id="9_x526t"]
 [ext_resource type="Texture2D" uid="uid://n5kw1mdkgv78" path="res://assets/top_down_character/_up walk.png" id="10_58dy0"]
+[ext_resource type="AudioStream" uid="uid://c6cl67f8rqyuu" path="res://assets/NinjaAdventure/Sounds/Game/PowerUp2.wav" id="14_tck3q"]
+[ext_resource type="AudioStream" uid="uid://cyhxu4hka3vf6" path="res://assets/NinjaAdventure/Sounds/Game/Sword2.wav" id="15_hooku"]
+[ext_resource type="AudioStream" uid="uid://dt68g2dgnim32" path="res://assets/NinjaAdventure/Sounds/Game/Alert.wav" id="16_x5h1b"]
+[ext_resource type="AudioStream" uid="uid://d1pcs7xdlaxft" path="res://assets/NinjaAdventure/Sounds/Game/GameOver2.wav" id="17_fkh57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0mhm"]
 size = Vector2(13, 6)
@@ -71,6 +76,26 @@ region = Rect2(0, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_48bdp"]
 atlas = ExtResource("4_03gqt")
 region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j4sf"]
+atlas = ExtResource("7_5a35g")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa8cb"]
+atlas = ExtResource("7_5a35g")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnm3v"]
+atlas = ExtResource("7_5a35g")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcnty"]
+atlas = ExtResource("7_5a35g")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qap6s"]
+atlas = ExtResource("7_5a35g")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gjkq"]
 atlas = ExtResource("5_8mici")
@@ -245,6 +270,26 @@ animations = [{
 "loop": true,
 "name": &"down_walk",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j4sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa8cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnm3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcnty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qap6s")
+}],
+"loop": true,
+"name": &"pickup",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -661,7 +706,8 @@ clip_children = 2
 texture_filter = 1
 position = Vector2(35, 41)
 sprite_frames = SubResource("SpriteFrames_2ylib")
-animation = &"side_attack"
+animation = &"pickup"
+frame_progress = 0.246729
 offset = Vector2(0, -17.675)
 
 [node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D"]
@@ -697,6 +743,21 @@ visible = false
 position = Vector2(35.41, 23.5)
 sprite_frames = SubResource("SpriteFrames_eodhi")
 animation = &"down_attack"
+
+[node name="PickupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_tck3q")
+
+[node name="AttackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_hooku")
+volume_db = -13.137
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_x5h1b")
+volume_db = 8.0
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_fkh57")
+volume_db = 12.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_hurt_box_area_exited"]

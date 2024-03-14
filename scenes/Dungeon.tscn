@@ -359,7 +359,6 @@ layer_3/tile_data = PackedInt32Array(327687, 0, 65536, 262170, 0, 65536, 524319,
 
 [node name="Player" parent="." instance=ExtResource("3_trfsu")]
 position = Vector2(102, 530)
-maxHealth = 5
 knockbackPower = 800
 
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
@@ -416,6 +415,6 @@ endPoint = NodePath("Marker2D")
 [node name="Marker2D" type="Marker2D" parent="Skeleton5"]
 position = Vector2(-245.714, 139.048)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_3nmg8")
 autoplay = true

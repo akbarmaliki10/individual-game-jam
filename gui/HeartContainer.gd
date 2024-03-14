@@ -19,6 +19,10 @@ func setMaxHearts(max :int):
 func updateHearts(currentHealth: int):
 	var hearts = get_children()
 	
+	if currentHealth < 1:
+		$GameOverSFX.play()
+		print_debug(currentHealth)
+	
 	for i in range(currentHealth):
 		hearts[i].update(true)
 	

@@ -58,5 +58,6 @@ func _on_hurt_box_area_entered(area):
 	$HitBox.set_deferred("monitorable", false)
 	isDead = true
 	animations.play("death")
+	$DeathSFX.play()
 	await animations.animation_finished
 	queue_free()

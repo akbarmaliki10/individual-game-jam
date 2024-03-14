@@ -10,7 +10,7 @@ var isAttacking: bool = false
 
 @export var speed: int = 50
 
-@export var maxHealth: int = 4
+@export var maxHealth: int = 1
 @onready var currentHealth: int = maxHealth
 
 @onready var hurtBox = $HurtBox
@@ -96,6 +96,7 @@ func attack():
 	isAttacking = true
 	weapon.enable()
 	animationAttack.visible = true
+	$AttackSFX.play()
 	await  animationWeapon.animation_finished
 	await  animationAttack.animation_finished
 	weapon.disable()
@@ -105,6 +106,7 @@ func attack():
 func hurtByEnemy(area):
 	currentHealth -= 1
 	if currentHealth < 1:
+		$GameOverSFX.play()
 		currentHealth = maxHealth
 		
 	healthChanged.emit(currentHealth)
@@ -120,6 +122,7 @@ func hurtByEnemy(area):
 func _on_hurt_box_area_entered(area):
 	if area.has_method("collect"):
 		area.collect()
+		$PickupSFX.play()
 
 func knockback(enemyVelocity: Vector2):
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
